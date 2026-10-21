@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMK Cerdas Indonesia | Pendidikan Berkualitas</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #243047;
+      background: #f5f8fc;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #073b74;
+      color: white;
+      padding: 16px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: white;
+      color: #073b74;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      font-weight: bold;
+      border: 3px solid #f6c453;
+    }
+
+    .brand h2 {
+      font-size: 19px;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: #d9e8ff;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ffd166;
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(120deg, #073b74, #087eac);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      margin-bottom: 28px;
+      color: #e5f2ff;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 7px;
+      background: #ffc857;
+      color: #17365d;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffdb8a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 8px;
+    }
+
+    section {
+      padding: 65px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      color: #073b74;
+      font-size: 30px;
+    }
+
+    .section-title p {
+      color: #66758a;
+      margin-top: 8px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      background: #edf5ff;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .stat h3 {
+      color: #087eac;
+      font-size: 27px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .program-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border-bottom: 4px solid #087eac;
+      box-shadow: 0 5px 20px #163a5c0d;
+      transition: transform .2s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .program-icon {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .program-card h3 {
+      color: #073b74;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      background: #eaf3ff;
+    }
+
+    .info-box {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .info-box ul {
+      padding-left: 23px;
+      margin-top: 12px;
+    }
+
+    .registration {
+      background: white;
+    }
+
+    .form-container {
+      max-width: 720px;
+      margin: auto;
+      background: #f5f8fc;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #dce6f1;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccd6e2;
+      border-radius: 7px;
+      font: inherit;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #65b5ef;
+      border-color: #087eac;
+    }
+
+    .form-container .btn {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    #hasil {
+      display: none;
+      margin-top: 20px;
+      background: #e1f7e8;
+      color: #176638;
+      border-radius: 8px;
+      padding: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      text-align: center;
+      background: #062b52;
+      color: white;
+      padding: 28px 7%;
+    }
+
+    footer p {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 60px 7%;
+      }
+
+      .form-row, .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-outline {
+        margin: 12px 0 0;
+      }
+
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER DAN LOGO -->
+  <header>
+    <div class="brand">
+      <div class="logo" aria-label="Logo sekolah">S</div>
+      <div>
+        <h2>SMK CERDAS INDONESIA</h2>
+        <p>Sekolah Vokasi Masa Depan</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#informasi">Informasi</a>
+      <a href="#pendaftaran">Pendaftaran</a>
+    </nav>
+  </header>
+
+  <!-- HALAMAN BERANDA -->
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <h1>Wujudkan Masa Depan Bersama SMK</h1>
+        <p>
+          Belajar keterampilan, mengembangkan potensi,
+          dan mempersiapkan diri untuk dunia kerja maupun
+          melanjutkan pendidikan ke perguruan tinggi.
+        </p>
+        <a href="#pendaftaran" class="btn">Daftar Sekarang</a>
+        <a href="#pendidikan" class="btn btn-outline">
+          Lihat Program Keahlian
+        </a>
+      </div>
+    </section>
+
+    <!-- TENTANG SEKOLAH -->
+    <section class="about" id="tentang">
+      <div class="section-title">
+        <h2>Tentang Sekolah</h2>
+        <p>Membangun generasi terampil, disiplin, dan berkarakter.</p>
+      </div>
+
+      <div class="about-content">
+        <p>
+          SMK Cerdas Indonesia merupakan contoh profil sekolah
+          kejuruan yang berfokus pada pengembangan keterampilan
+          praktis, teknologi, kreativitas, dan kesiapan kerja.
+          Siswa dibekali pembelajaran teori dan praktik sesuai
+          bidang keahlian masing-masing.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>4</h3>
+            <p>Program Keahlian</p>
+          </div>
+          <div class="stat">
+            <h3>Praktik</h3>
+            <p>Pembelajaran Terapan</p>
+          </div>
+          <div class="stat">
+            <h3>Siap</h3>
+            <p>Menghadapi Dunia Kerja</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITUR PENDIDIKAN -->
+    <section id="pendidikan">
+      <div class="section-title">
+        <h2>Program Keahlian</h2>
+        <p>Pilih bidang yang sesuai dengan minat dan bakatmu.</p>
+      </div>
+
+      <div class="program-grid">
+        <article class="program-card">
+          <div class="program-icon">💻</div>
+          <h3>Rekayasa Perangkat Lunak</h3>
+          <p>
+            Mempelajari pemrograman, pembuatan website,
+            aplikasi, basis data, dan pengembangan perangkat lunak.
+          </p>
+        </article>
+
+        <article class="program-card">
+          <div class="program-icon">🌐</div>
+          <h3>Teknik Komputer dan Jaringan</h3>
+          <p>
+            Mempelajari perakitan komputer, jaringan internet,
+            server, dan pemeliharaan perangkat komputer.
+          </p>
+        </article>
+
+        <article class="program-card">
+          <div class="program-icon">📊</div>
+          <h3>Akuntansi</h3>
+          <p>
+            Mempelajari pencatatan transaksi, laporan keuangan,
+            administrasi, dan pengelolaan keuangan.
+          </p>
+        </article>
+
+        <article class="program-card">
+          <div class="program-icon">🎨</div>
+          <h3>Desain Komunikasi Visual</h3>
+          <p>
+            Mempelajari desain grafis, ilustrasi, fotografi,
+            serta pembuatan konten visual digital.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INFORMASI PENDIDIKAN -->
+    <section class="info" id="informasi">
+      <div class="section-title">
+        <h2>Informasi Pendidikan</h2>
+        <p>Informasi umum untuk calon peserta didik.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Persyaratan Pendaftaran</h3>
+        <ul>
+          <li>Lulusan SMP/MTs atau sederajat.</li>
+          <li>Mengisi formulir pendaftaran dengan lengkap.</li>
+          <li>Menyiapkan kartu keluarga dan akta kelahiran.</li>
+          <li>Menyiapkan ijazah atau surat keterangan lulus.</li>
+          <li>Memenuhi ketentuan seleksi sekolah yang berlaku.</li>
+        </ul>
+
+        <br>
+
+        <h3>Keunggulan Pembelajaran</h3>
+        <ul>
+          <li>Pembelajaran teori dan praktik.</li>
+          <li>Pengembangan keterampilan sesuai bidang keahlian.</li>
+          <li>Pembiasaan disiplin dan kerja sama.</li>
+          <li>Persiapan memasuki dunia kerja atau pendidikan lanjutan.</li>
+        </ul>
+
+        <p style="margin-top: 18px; color: #66758a;">
+          Catatan: Program keahlian dan persyaratan di atas adalah
+          contoh dan perlu disesuaikan dengan sekolah sebenarnya.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMULIR PENDAFTARAN -->
+    <section class="registration" id="pendaftaran">
+      <div class="section-title">
+        <h2>Pendaftaran Siswa Baru</h2>
+        <p>Lengkapi formulir di bawah ini dengan data yang benar.</p>
+      </div>
+
+      <div class="form-container">
+        <form id="formPendaftaran">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap *</label>
+              <input type="text" id="nama" required
+                     placeholder="Masukkan nama lengkap">
+            </div>
+
+            <div class="form-group">
+              <label for="nisn">NISN (jika ada)</label>
+              <input type="text" id="nisn"
+                     placeholder="Masukkan NISN">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tanggal">Tanggal Lahir *</label>
+              <input type="date" id="tanggal" required>
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Jenis Kelamin *</label>
+              <select id="gender" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="asal">Asal Sekolah *</label>
+            <input type="text" id="asal" required
+                   placeholder="Nama SMP/MTs">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="program">Program Keahlian *</label>
+              <select id="program" required>
+                <option value="">Pilih program</option>
+                <option>Rekayasa Perangkat Lunak</option>
+                <option>Teknik Komputer dan Jaringan</option>
+                <option>Akuntansi</option>
+                <option>Desain Komunikasi Visual</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="telepon">Nomor HP *</label>
+              <input type="tel" id="telepon" required
+                     placeholder="Contoh: 081234567890"
+                     pattern="[0-9+ -]{9,18}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="alamat">Alamat Lengkap *</label>
+            <textarea id="alamat" rows="3" required
+                      placeholder="Masukkan alamat rumah"></textarea>
+          </div>
+
+          <button type="submit" class="btn">
+            Kirim Pendaftaran
+          </button>
+        </form>
+
+        <div id="hasil" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>SMK CERDAS INDONESIA</h3>
+    <p>Mencetak Generasi Terampil dan Berprestasi</p>
+    <p>Email: info@smkcontoh.sch.id</p>
+    <p>&copy; <span id="tahun"></span> SMK Cerdas Indonesia.</p>
+    <p>Website contoh pendidikan dan pendaftaran siswa.</p>
+  </footer>
+
+  <script>
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("formPendaftaran")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nama = document.getElementById("nama").value.trim();
+        const program = document.getElementById("program").value;
+        const hasil = document.getElementById("hasil");
+
+        if (!nama || !program) {
+          alert("Silakan lengkapi data pendaftaran.");
+          return;
+        }
+
+        hasil.style.display = "block";
+        hasil.innerHTML = `
+          <h3>Pendaftaran Berhasil Dicatat!</h3>
+          <p>Terima kasih, <strong>${escapeHTML(nama)}</strong>.</p>
+          <p>Program pilihan: <strong>${escapeHTML(program)}</strong></p>
+          <p>Data ini baru ditampilkan pada halaman ini.
+          Silakan hubungi pihak sekolah untuk proses pendaftaran resmi.</p>
+        `;
+
+        hasil.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+    function escapeHTML(text) {
+      return text.replace(/[&<>"']/g, function(char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        }[char];
+      });
+    }
+  </script>
+
+</body>
+</html>
